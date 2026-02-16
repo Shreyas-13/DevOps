@@ -1,2 +1,3 @@
 Day 1: Vagrant 
 Day 2: Linux Basics
+Day 3: Linux file manipulation and user management
