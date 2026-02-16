@@ -1,0 +1,44 @@
+Advanced Commands
+
+ln -s [source file path] [new file path] - This command helps you in creating a softlink in other words a shortcut for your source file in a directory of your choice for easier access. Once the source file is moved the shortcut becomes unusable.
+
+ls | wc -l - What I want you to focus in this command is the | operator it takes the output of the first command i.e., ls and feeds it to wc (word count) command. The output of this command is going to be the number of lines in other words the total number of files in a directory on which ls was used.
+
+grep [keyword] [filename] - Grep is a very useful command when you're trying search something in a file. It has other uses as well let's say if you're trying to find a specific file in a directory whose name starts with host then you can use grep with | operator like this: ls -l | grep host. grep is a very versatile command and can be used in different way. One just needs to be a little crafty with it.
+
+less [file name] - Less helps you read and file and navigate it using the up and down arrows so one can read it well.
+
+head -n 15 [file name] - Let's you read the first 15 lines of the file. You can change the value for n.
+
+tail -n 5 [file name] - Let's you read the last 5 lines of a file. One can use the '-f' flag to keep the file open unless it's forcefully closed. This is very helpful when you're monitoring a log file and you want to see the logs being appended in the file.
+
+:%s/word_to_be_replaced/word_to_be_replaced_with/g - Using this command in the Vim editors command mode you can change the occurrence of any word. It's like search and replace. %s denotes the search operation and /g is the global flag which makes the changes everywhere in the file. One can also use sed for the same like this:
+sed -i 's/word_to_be_replaced/word_to_be_replaced_with/g' *, here * will make the change in all the files present in that directory, you can also use a file name in place of *
+
+awk '{print $4}' [file name] - Awk helps in printing specific columns of a formatted file. One can also define logic using awk in following way:
+awk '$3 == "X" {print}' [file name] where it will only print lines where the third column has an entry X.
+
+ls > info.txt - The '>' operator is IO redirection operator and sends the output of ls to a file info.txt. This operator always overwrites the content of the file if you want to append the content use '>>' in following way:
+echo "This is append block" >> info.txt
+
+User and Group Administration 
+Users and groups are used to control access to files and resources. Every file on the system has a user and a group associated with it and only the user and the group has access to that file.
+Each user has a UID and GID associated with it and you can see it using the command id [username] or in the file /etc/passwd. For group information see file /etc/group. All the passwords for every user is stored in a file named as /etc/shadow in an encrypted format.
+There are different types of user:
+* Root User - Super user with UID and GID as 0.
+* Regular User - UID and GID ranging between 1000 to 6000.
+* Services - UID and GID ranging from 1 to 999.
+
+useradd [username] - Creates a new user for rpm based OS. For Debian use adduser [username].
+
+groupadd [group name] - Creates a new group. A group is used to give same level of access to multiple users of that group.
+
+usermod -g [group name] [username] - To add users to a group. 
+
+passwd [username] - To set or reset password for a user.
+
+su [username] - To switch to a different user.
+
+userdel -R [username] - Deletes and user and their home directory from the system.
+
+groupdel [group name] - Deletes a group.
