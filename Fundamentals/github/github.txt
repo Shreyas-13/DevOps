@@ -1,0 +1,42 @@
+Version Control System
+A version control system is a piece of software that helps you to track changes that are made to a file or a set of files. It helps you to manage different kinds of documents be it text or code.
+VCS records who made the change and to what file and stores that information. It helps individuals to go back to a previous version of a document as it has all the history tracked without any hassle. It also allows team members to work simultaneously on a project without over-writing each other's work.
+
+Types of VCS
+There are three kinds of VCS namely:
+Localized - Localized VCS allows individuals to keep different versions of a file locally on their system. Localized VCS doesn't allow collaboration as all the code and history is stored on a single machine. E.g. RCS
+Centralized - Centralized VCS works on a client-server model where the files are stored in a central server and there are multiple clients who can request the file to make changes on their system and then push the file again back to the server. These are a little network dependent because every time you have to ask the server for a file when you want to make changes and your network bandwidth can be a limiting factor here. E.g. SVN
+Distributed - Distributed VCS, most widely used VCS, overcomes the drawbacks of both localized and centralized VCS by eliminating the single point of failure. Here the full copy of data and change history is stored on the server and well as the clients (local machines). Make the changes locally and then sync with the central repository. E.g. Git.
+
+What is GitHub?
+GitHub is a web based platform to host your git repositories. It allows teams to collaborate by pushing and pulling the code directly from the repository. Here I'll be discussing some git commands that you can use on your machine to work with git and GitHub.
+
+Git Commands
+git init - Initializes and creates a .git directory which is used to store all the history. Use git init in the directory you want to keep a track of.
+git status - Shows you what all files are untracked.
+git add [file name] - Adds the file to a staging area for tracking.
+git commit -m "msg" - Commits the changes, creates a Commit ID and saves it. It works like a timestamp that you can go back to whenever you want.
+git remote add origin [URL of the repository] - Once you've created a repository on GitHub to save all your changes there you need to connect it to your local project. Run this command in your terminal to connect the GitHub repo and your local project in order to push or sync your work to GitHub.
+git remote -v - Shows the endpoint your project is connected to on GitHub.
+git push origin [branch name] - To push your project on a specific branch on GitHub.
+git log - To check the history of all the previous commits.
+git show [commit ID] - Shows the information about a particular commit.
+git pull - Pulls the changes from the connected GitHub repository and syncs it with your local project.
+git clone [URL] - Copies all the files of a GitHub repository to your local machine.
+
+Branch
+A branch is a logical separation of your work. You need to work with branches when you're working on multiple features in your project and don't want to change your original codebase unless that feature is fully developed and tested.
+Git commands
+git branch -a - Shows all the branches associated with a project.
+git branch -c [branch name] - Creates a new branch.
+git checkout [branch name] - Takes you to the specified branch name. All the changes made now will be done on that branch.
+git merge [branch name] - Merges all the changes of the specified branch with the active branch.
+
+Rollback
+Rollback means reverting to a previous state from where you currently are. This can be done for various reason but predominantly for error recovery.
+Git Commands
+git checkout [file name] - Reverts the changes made to the file but only works if the file hasn't been added to the staging using git add.
+git diff - To check what changes has been made. If the file has been moved to the staging use - -  cached flag.
+git restore - - staged [file name] - To remove the file from the staging area.
+git revert HEAD - To move back to the just previous commit state. This creates a new entry in the commit history but reverts to a previous state.
+git reset - - hard [commit ID] - This prunes all the other commits that has been made after the commit ID mentioned and reverts the project state to that commit.
