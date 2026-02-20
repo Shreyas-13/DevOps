@@ -1,0 +1,5 @@
+This branch of DevOps project only contains the web hosting project but in IAC (Infra as Code) format.
+The commands are added in the shell section of the vagrant file so when the machine goes up the Apache server starts automatically.
+
+The HTML file is downloaded and moved to /var/www/html and the server restarts post that. 
+This automates the process of creating and deploying websites on Apache server.
