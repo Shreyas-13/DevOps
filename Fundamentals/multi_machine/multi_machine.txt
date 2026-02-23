@@ -1,0 +1,27 @@
+This file talke about how one can use multi machine from a single vagrantfile.
+Multi machine vagrant file is useful when you're trying to deploy an application stack where different services can be run on different VMs like the db is run on VM1 and the Frontend is run on VM2.
+Other usecase can be where you're trying to deploy multiple VMs in the same file to check how would the system perform if one of the VMs goes down.
+
+## Defining the Vagrantfile
+Vagrant.configure("2") do |config|
+	config.vm.define "VM1" do |VM1|
+		VM1.vm.box = "boxname"
+		VM1.vm.network = "private network", ip = ""
+		VM1.vm.provision "shell", inline <<-SHELL
+			yum install httpd -y
+		SHELL
+	end
+	
+	config.vm.define "web1" do |web1|
+		web1.vm.box = "boxname"
+		web1.vm.network = "public network"
+		web1.vm.provider "virtualbox" do |vb|
+			vb.memory = 1024
+			vb.cpus = 2
+		end
+	end
+end
+
+## Closing the Vagrantfile
+
+In this vagrant file there are two VMs named VM1 and web1. VM1 is a private vm with httpd provisioned whereas web1 is a public vm with 1GB RAM and 2vCPUs.
