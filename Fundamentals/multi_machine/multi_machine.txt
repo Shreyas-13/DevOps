@@ -6,7 +6,7 @@ Other usecase can be where you're trying to deploy multiple VMs in the same file
 Vagrant.configure("2") do |config|
 	config.vm.define "VM1" do |VM1|
 		VM1.vm.box = "boxname"
-		VM1.vm.network = "private network", ip = ""
+		VM1.vm.network "private network", ip = ""
 		VM1.vm.provision "shell", inline <<-SHELL
 			yum install httpd -y
 		SHELL
@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
 	
 	config.vm.define "web1" do |web1|
 		web1.vm.box = "boxname"
-		web1.vm.network = "public network"
+		web1.vm.network "public network"
 		web1.vm.provider "virtualbox" do |vb|
 			vb.memory = 1024
 			vb.cpus = 2
