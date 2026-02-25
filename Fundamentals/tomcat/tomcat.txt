@@ -1,0 +1,28 @@
+Generally we download the services/packages that we want to use directly using a package manager and when that is done the systemd process get to know about the installation of a new package.
+But if a package isn't available directly through the package manager we have to download it manually and if it's downloaded manually one can't use systemctl command to bring these services up or to enable these services.
+
+So how we let the systemd process to be aware of this new program is by creating a user for this service and writing a unit file for the same and once that is created we can use systemctl to perform operations with this service as we'd normally do.
+
+The user created for this service is a service user (UID 1-999) with no shell access so no one can login using this service user to perform any operation.
+/opt/tomcat - user home directory; /sbin/nologin - user shell path
+
+## Create a user for the service
+useradd --home-directory /opt/tomcat --shell /sbin/nologin tomcat
+
+This command creates a user with a home directory and no shell access to prevent unauthorised executions.
+
+## Download Tomcat using wget
+
+## Unzip the folder
+
+## Copy all the files from tomcat folder to the /opt/tomcat directory
+
+## Change the ownership of /opt/tomcat to tomcat:tomcat user so it can run the services and make use of all the files inside
+
+## Create a file /etc/systemd/system/tomcat.service and configure all the three directives, i.e., [Unit], [Service], and [Install]
+
+## systemctl daemon-reload
+
+## systemctl start tomcat
+
+Done!!
