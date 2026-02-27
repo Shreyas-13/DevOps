@@ -19,4 +19,4 @@
  Enable the following settings:
 
   - config.hostmanager.enabled = true : enables the host manager for a VM stack
-  - config.hostmanager.manage_host = true : Updates the /etc/hosts and C:\Windows\System32\drivers\etc\hosts file on host     and guest
+  - config.hostmanager.manage_host = true : Updates the /etc/hosts and C:\Windows\System32\drivers\etc\hosts file on host and guest
