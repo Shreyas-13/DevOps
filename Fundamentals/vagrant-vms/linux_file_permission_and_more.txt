@@ -1,0 +1,69 @@
+File and File Permissions
+Files are fundamental units used to store data on any computer. In Linux everything is represented as a file and there are different types of files in a Linux file system. 
+ 
+- : The '-' operator refers to any regular file that is there on your system, it can be a text file or a xml file or any other file.
+d: Directories or as you may know them as folders in Windows is represented using 'd' flag.
+c: These are special files aka character files, these represent hardware devices handling data one character (byte) at a time.
+s: These are your socket files that provide inter-process communication between processes on the same system.
+p: These are known as pipe files and again these are used for inter-process communication but unlike socket files these don't use network sockets.
+
+Each file in Linux has some permission associated with it for the owner, group and other users defined either using characters like r (read = 4), w(write = 2) and x (execute = 1) or numbers like 755.
+I will try to explain how the file permissions using the example below:
+ 
+Here the first '-' denotes that it's a regular file. The next three bits r w -  are for the owner, r - - is for the group users and the last r - - are for other users.
+r w - : Denotes that the owner has read and write access for this file. If it is to be represented in a numerical form then it would be 6 (read = 4 + write = 2)
+r - - : Denotes read access of the group members. Numerically 4.
+r - - : Denotes read access again but for other users on the system. Numerically 4.
+
+In numerical notation the access for the file will be 644.
+In case of folders r means you can list the contents of the folder, w means you can create sub-files and folders and x means you can cd into the folder.
+
+File Permission Commands
+
+chmod 755 [file name] - This changes the type of operation different kind of users can perform on this file. Owners can rwx, group members can rw and other users can rw as well.
+
+chown user name: group name [file name]: This changes the owner of the and the associated group for the file.
+
+Package Management
+Package managers allows you to download and install different tools from the web using your shell. There are different package managers available for different flavors of Linux. You have yum, dnf, apt and many more package manager that makes your life easy while installing a tool on your system as they scan your system and also install the other dependencies for you.
+
+apt install [package name] - To install packages on Debian based OS.
+
+yum install [package name] - To install packages on rpm based OS.
+
+If you don't want to use any package manager you can download your tools through the old school way using:
+ rpm -i [downloaded package file] on rpm based OS
+dpkg -i [downloaded package file] on Debian based OS
+
+Services
+
+Services in Linux are background programs (often called daemons) that run continuously to provide essential system functionality like networking, logging, or web serving, managed primarily by systemd process.
+systemctl start [service name] - Starts a service.
+systemctl status [service name] - Shows the status of the service.
+systemctl restart [service name] - Restarts the service.
+systemctl reload [service name] - Reloads the service without stopping it.
+systemctl enable [service name] - Enables the service to automatically run during boot. One needs to start the service before enabling it.
+systemctl is-active [service name] - To check if a service is active or not.
+systemctl is-enabled [service name] - To check if a service is enabled.
+systemctl stop [service name] - To stop a service from running.
+Processes
+Processes in Linux are any running instances of programs or commands, identified by a unique PID, consuming CPU, memory, and other resources until they complete or are terminated. Services are essential subsets of processes that always keeps running in the background to provide system functionality. There are different kind of flags associated with processes namely:
+R - Running
+S - Sleeping
+D - Uninterrupted sleep (Disk I/Os)
+Z - Zombie Process (whose execution has been completed but the entry hasn't been removed from active services)
+T - Stopped
+
+Additional flags
+s - Session Leader
++ - Foreground process
+I - multi-threaded process
+< - High priority process
+N - Low priority process
+
+To view and terminate processes you can use the following commands:
+
+top - Acts like task manager and shows you all the process and how much CPU and memory it's consuming. Dynamic and keeps running until stopped.
+ps aux - Works like top shows you the process and CPU and memory consumption but isn't dynamic like top.
+ps -ef - Shows the PID of the parent as well.
+kill [PID] - To intentionally kill a process and it's children as well. Some times it's hard to kill a process and you've to forcefully kill that one in that case use: kill -9 PID.

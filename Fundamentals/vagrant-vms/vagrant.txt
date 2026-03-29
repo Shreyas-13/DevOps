@@ -1,0 +1,54 @@
+Why Not the Manual Way?
+Setting up VMs can be a tedious process especially when you need to deploy 100s of them. This takes up a lot of time which could otherwise be used in tasks that can help deliver better business outcomes. Here are some of the drawbacks of deploying VMs manually:
+
+Manual OS installation can be time consuming.
+
+It can be tough to replicate when working with multiple VMs.
+
+These can also be prone to human error.
+
+
+
+Why Use a Tool Like Vagrant?
+There are many benefits for using an automation tool like Vagrant. Using such open-source tools can give the engineers a lot of time back which they can use on other mission critical or time sensitive tasks. Here are some of the advantages of using Vagrant:
+
+No manual installation required — VM images are available on Vagrant Cloud also known as boxes.
+
+Manage all VM settings and changes from a single file aka vagrantfile.
+
+Simple commands that you can directly use from the CLI to manage your VMs.
+
+
+
+How to Use Vagrant?
+Step 1: Create a directory with the name of the VM you want to create.
+
+Become a member
+Step 2: Find the OS you want your VM to run on Vagrant Cloud and get the box name.
+
+Step 3: Cd into the directory you created and use vagrant init [box name] in the shell.
+
+Step 4: Once the vagrant file is created open it and make any required changes that you want and save it.
+
+Step 5: Use vagrant up to initialize your VM.
+
+
+
+Useful Vagrant Commands
+vagrant init [box name] — Creates the vagrant file with default settings for that OS.
+
+vagrant up — Initializes the VM.
+
+vagrant ssh — Remotely connects to the VM.
+
+vagrant halt — Gracefully shuts down the VM.
+
+vagrant reload — Reboots the VM. Required when you make any changes to the vagrant file and want the changes to reflect.
+
+vagrant destroy — Deletes the VM instance.
+
+vagrant box list — Lists all the VMs present in the Vagrant environment.
+
+vagrant global-status — Shows the running status of all the VMs in the Vagrant environment.
+
+P.S: Always use these commands from the directory where your vagrant file is located.

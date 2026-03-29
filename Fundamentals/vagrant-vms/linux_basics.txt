@@ -1,0 +1,69 @@
+Getting Started with Linux
+
+Hi Everyone! Today I am going to be talking about one of the most famous kernels that is out there, Linux, and some of the basic yet essential commands to get you started in your Linux journey.
+
+Why learn Linux?
+
+There are many reasons for one to be learning the ropes of Linux and I'll list some of them down here:
+Linux dominates 90%+ of cloud servers and is essential for AWS, Docker, Kubernetes - key in your infrastructure work.
+It's lightweight, stable for production, and runs everywhere - from Android to supercomputers.
+Mastering it unlocks roles like DevOps engineer, with strong Linux skills reducing debugging time and enabling automation scripting.
+
+Understanding the Linux Architecture and File System
+
+Before I start talking about the Linux commands, I quickly wanted to spend some time to talk about the Linux architecture and the file system.
+Talking about the architecture here is a diagrammatic representation of what the architecture looks like to help you understand the concept better:
+Linux ArchitectureAt the inner most layer sits the hardware like your CPU, memory etc. The kernel is the heart of the Linux OS that translates the commands received from the user so that the user can interact with the hardware. The key responsibilities of the kernel is to take care of the memory management, process management, device and IO management among others.
+A shell is an interface that is used by the user to pass on instructions to the machine, think of it like you're using the interface to ask the computer to move a file from location A to location B.
+And in the outermost layer sits the application that you run on your machine.
+Now let's understand some of the basic directories that are present in the Linux file system:
+/ - This is the root directory. All the other directories are stored in this directory.
+/root - This is the root user's (super user with all the permissions) home directory.
+/home/username - This is the home directory for different users.
+/bin - This contains all the single user mode binaries.
+/sbin - This contains the system binaries that root user can execute.
+/dev - This contains all the device files (peripherals).
+/var - This contains variable data files that change during system operation, such as logs, spool files, and temporary data.
+/mnt - Mount point for storage.
+/tmp - This contains the temorary files generated while other operations.
+/etc - This contains the system config information.
+/boot - This contains the bootloader.
+
+Essential Commands
+Now the part that is the most important one. Here I'll be listing down some of the easy yet essential CLI commands to get you started in your Linux journey.
+
+pwd - Used to display what is the present working directory.
+cd [folder path] - Used to change the current directory and move to a different directory.
+ls - List all the files and folders in the directory you're working in.
+touch [filename.extension] - To create a file.
+cp -r [source path] [destination path] - Copy files from source to destination. '-r' flag is used to recursively copy the contents of a folder in case you're copying a folder.
+mv [source path] [destination path] - Used to either move a file from source to destination or to rename a file.
+rm -rf [folder] - Used to delete a folder. '-rf' flag means recursively and forcefully delete the content.
+
+Extra Tidbits
+If you want to create multiple files or folders use:
+mkdir folder_name{1..5} - This will create 5 folders with names as foldername1, foldername2……foldername5
+
+If you want to move multiple file you can use RegEx with mv command:
+mv *.txt [destination path] - This will move all the txt files from current path to destination.
+
+If you want to delete everything from a directory use:
+rm -rf *
+
+Your Text Editor - VIM
+One last thing that I'd like to talk about in this article is Vim. Vim is a text editor you use to manipulate files in Linux. It has 3 modes namely:
+
+Command mode - Default mode as soon as you enter a file, used to give instructions. Use 'vim filename.txt'
+Insert Mode - To add content in the file. Press 'I' to enter insert mode.
+Extended Command Mode - Used to save file and exit the vim editor. Use esc followed by :wq to save file or use :q! to exit the file without saving.
+
+Other commands for Vim
+
+:se nu - Displays the line number in the file
+G - To go to the last line.
+gg - To go to the first line.
+yy - Copy content of a particular line.
+p - Paste the content below.
+dd - Cut the content from a line
+uu - Undo the operation.
+/keyword - Use the keyword use want to search for and the use 'n' to look for the next occurance of that keyword in the file.
